@@ -1,0 +1,59 @@
+====================================================================
+GUÍA DE CONFIGURACIÓN Y EJECUCIÓN - TALLER 01
+Proyecto: UrbanVibe Wear (Gestión de Órdenes)
+====================================================================
+
+1. REQUISITOS PREVIOS
+--------------------------------------------------------------------
+- PHP y Composer instalados.
+- Node.js y npm instalados.
+- Servidor local (MAMP) para la base de datos MySQL.
+
+2. INSTALACIÓN DE DEPENDENCIAS (PHP y Vite/Frontend)
+--------------------------------------------------------------------
+IMPORTANTE: Es obligatorio instalar las herramientas de frontend 
+(como Vite y Tailwind) para que la página cargue los estilos visuales. 
+Abra una terminal en la carpeta raíz del proyecto y ejecute:
+
+> composer install
+> npm install
+
+3. CONFIGURACIÓN DE LA BASE DE DATOS (.env)
+--------------------------------------------------------------------
+1. Duplicar el archivo ".env.example" y renombrarlo como ".env".
+2. Crear una base de datos vacía en phpMyAdmin (MAMP) llamada: taller_01_db
+3. Configurar las credenciales en el archivo .env. Para MAMP en Mac, 
+   dejar el bloque así:
+
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=8889
+   DB_DATABASE=taller_01_db
+   DB_USERNAME=root
+   DB_PASSWORD=root
+
+(Nota: Si se usa Windows u otro servidor, el puerto suele ser 3306 
+y la contraseña puede estar vacía).
+
+4. MIGRACIONES DE LA BASE DE DATOS
+--------------------------------------------------------------------
+Para crear la tabla de órdenes, ejecutar en la terminal:
+
+> php artisan migrate:fresh
+
+5. EJECUCIÓN DEL SERVIDOR Y COMPILACIÓN DE ESTILOS
+--------------------------------------------------------------------
+Se requieren dos terminales corriendo simultáneamente para que 
+el servidor PHP y Vite (Tailwind CSS) funcionen juntos:
+
+Terminal 1 (Servidor PHP): 
+> php artisan serve
+
+Terminal 2 (Vite / Tailwind CSS): 
+> npm run dev
+
+6. RUTA INICIAL DE ACCESO
+--------------------------------------------------------------------
+Abrir el navegador web y acceder a la ruta inicial:
+
+> http://localhost:8000
