@@ -9,16 +9,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            
+
             $table->id();
-            
+
             $table->string('orderNumber');
             $table->date('creationDate');
             $table->float('totalAmount');
             $table->string('status');
-            
+
             $table->timestamps();
-            
+
         });
     }
 
