@@ -20,19 +20,27 @@ class OrderController extends Controller
 
     public function index()
     {
-        // Traemos todos los registros de la tabla orders
-        $orders = Order::all();
-
-        return view('orders.index', compact('orders'));
+        // Creamos el arreglo asociativo como pide el profesor
+        $viewData = [];
+        $viewData['title'] = __('Listado de Órdenes - UrbanVibe Wear');
+        $viewData['orders'] = Order::all();
+        
+        // Lo enviamos usando ->with()
+        return view('orders.index')->with('viewData', $viewData);
     }
 
     public function show($id)
     {
-        // Buscamos el registro por su ID
+        // Buscamos la orden
         $order = Order::findOrFail($id);
 
-        // Retornamos la vista pasando todos los datos de esa orden
-        return view('orders.show', compact('order'));
+        // Armamos el arreglo asociativo
+        $viewData = [];
+        $viewData['title'] = __('Detalle de la Orden #:id', ['id' => $order->id]);
+        $viewData['order'] = $order;
+        
+        // Lo enviamos usando ->with()
+        return view('orders.show')->with('viewData', $viewData);
     }
 
     public function store(Request $request)
@@ -50,7 +58,7 @@ class OrderController extends Controller
 
         // 3. Redirigir a la vista inicial con un mensaje de éxito
         return redirect()->route('order.home')
-            ->with('success', 'Elemento creado satisfactoriamente');
+            ->with('success', __('Elemento creado satisfactoriamente'));
     }
 
     public function destroy($id)

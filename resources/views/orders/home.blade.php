@@ -27,11 +27,11 @@
         <!-- Botones con estilo tecnológico -->
         <div class="flex flex-col sm:flex-row justify-center gap-4">
             <a href="{{ route('order.create') }}" class="inline-block bg-blue-600 text-white font-semibold px-5 py-3 rounded hover:bg-blue-500 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] transition duration-300">
-                Crear Orden (Actividad 2)
+                Crear Orden 
             </a>
             
             <a href="{{ route('order.index') }}" class="inline-block bg-transparent border-2 border-blue-600 text-blue-400 font-semibold px-5 py-3 rounded hover:bg-blue-600 hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] transition duration-300">
-                Listar Órdenes (Actividad 4)
+                Listar Órdenes 
             </a>
         </div>
         
