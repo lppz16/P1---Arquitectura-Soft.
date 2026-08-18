@@ -11,11 +11,32 @@ class HomeController extends Controller
         return view('home.index');
     }
 
+    public function about(): View
+    {
+        $data1 = 'About us - Online Store';
+        $data2 = 'About us';
+        $description = 'This is an about page of a beautiful urbanwear vibe store';
+        $author = 'Developed by: Yan Frank Rios Lopez';
+
+        return view('home.about')->with('title', $data1)
+            ->with('subtitle', $data2)
+            ->with('description', $description)
+            ->with('author', $author);
+    }
+
     public function contact(): View
     {
-    $viewData = [];
-    $viewData["title"] = "Contact";
+        $title = 'Contact - Online Store';
+        $subtitle = 'Contact Us';
+        $author = 'Developed by: Yan Frank Rios Lopez';
+        $address = 'La estrella, Colombia';
+        $phone = '+57 314 622 8336';
 
-    return view('home.contact')->with("viewData", $viewData); 
+        return view('home.contact')
+            ->with('title', $title)
+            ->with('subtitle', $subtitle)
+            ->with('author', $author)
+            ->with('address', $address)
+            ->with('phone', $phone);
     }
 }
